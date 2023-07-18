@@ -251,6 +251,9 @@ class HijrahChronology implements Serializable {
             throw new DateTimeException("Invalid Hijrah date, year: " +
                     prolepticYear + ", month: " + monthOfYear);
         }
+        if (dayOfMonth > getMonthLength(prolepticYear, monthOfYear)) {
+            dayOfMonth = getMonthLength(prolepticYear, monthOfYear);
+        }
         if (dayOfMonth < 1 || dayOfMonth > getMonthLength(prolepticYear, monthOfYear)) {
             throw new DateTimeException("Invalid Hijrah day of month: " + dayOfMonth);
         }
